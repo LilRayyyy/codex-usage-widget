@@ -1,0 +1,71 @@
+<svg width="720" height="760" viewBox="0 0 720 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="760" rx="42" fill="#F4F6F3"/>
+  <rect x="18" y="18" width="684" height="724" rx="38" fill="#FFFFFF" stroke="#DCE2DA"/>
+  <text x="48" y="72" fill="#1F2328" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="26" font-weight="700">Codex</text>
+  <text x="132" y="72" fill="#6F7780" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="600">Pro</text>
+  <text x="590" y="72" fill="#6F7780" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15">just now</text>
+  <text x="48" y="150" fill="#1F2328" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="72" font-weight="800">72%</text>
+  <text x="230" y="144" fill="#6F7780" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18">remaining</text>
+  <rect x="48" y="182" width="624" height="16" rx="8" fill="#DDE4DD"/>
+  <rect x="48" y="182" width="449" height="16" rx="8" fill="#2DA56A"/>
+  <text x="48" y="248" fill="#6F7780" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="700">Weekly remaining</text>
+  <text x="635" y="248" fill="#1F2328" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="700">48%</text>
+  <rect x="48" y="264" width="624" height="12" rx="6" fill="#DDE4DD"/>
+  <rect x="48" y="264" width="300" height="12" rx="6" fill="#2DA56A"/>
+  <g transform="translate(48 320)">
+    <rect width="185" height="90" rx="12" fill="#F5F7F4" stroke="#E1E6DF"/>
+    <text x="18" y="36" fill="#1F2328" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="24" font-weight="800">3.8K</text>
+    <text x="18" y="65" fill="#6F7780" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15">Today</text>
+  </g>
+  <g transform="translate(267 320)">
+    <rect width="185" height="90" rx="12" fill="#F5F7F4" stroke="#E1E6DF"/>
+    <text x="18" y="36" fill="#1F2328" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="24" font-weight="800">42.1K</text>
+    <text x="18" y="65" fill="#6F7780" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15">Month</text>
+  </g>
+  <g transform="translate(486 320)">
+    <rect width="185" height="90" rx="12" fill="#F5F7F4" stroke="#E1E6DF"/>
+    <text x="18" y="36" fill="#1F2328" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="24" font-weight="800">6d</text>
+    <text x="18" y="65" fill="#6F7780" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15">Reset</text>
+  </g>
+  <text x="48" y="468" fill="#6F7780" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="700">Daily usage</text>
+  <g transform="translate(48 494)">
+    <rect x="0" y="0" width="18" height="18" rx="4" fill="#DCE4DC"/>
+    <rect x="26" y="0" width="18" height="18" rx="4" fill="#A7DDBF"/>
+    <rect x="52" y="0" width="18" height="18" rx="4" fill="#70C995"/>
+    <rect x="78" y="0" width="18" height="18" rx="4" fill="#38AE70"/>
+    <rect x="104" y="0" width="18" height="18" rx="4" fill="#2DA56A"/>
+    <rect x="130" y="0" width="18" height="18" rx="4" fill="#DCE4DC"/>
+    <rect x="156" y="0" width="18" height="18" rx="4" fill="#70C995"/>
+    <rect x="0" y="26" width="18" height="18" rx="4" fill="#70C995"/>
+    <rect x="26" y="26" width="18" height="18" rx="4" fill="#38AE70"/>
+    <rect x="52" y="26" width="18" height="18" rx="4" fill="#A7DDBF"/>
+    <rect x="78" y="26" width="18" height="18" rx="4" fill="#DCE4DC"/>
+    <rect x="104" y="26" width="18" height="18" rx="4" fill="#70C995"/>
+    <rect x="130" y="26" width="18" height="18" rx="4" fill="#2DA56A"/>
+    <rect x="156" y="26" width="18" height="18" rx="4" fill="#38AE70"/>
+    <rect x="0" y="52" width="18" height="18" rx="4" fill="#DCE4DC"/>
+    <rect x="26" y="52" width="18" height="18" rx="4" fill="#A7DDBF"/>
+    <rect x="52" y="52" width="18" height="18" rx="4" fill="#70C995"/>
+    <rect x="78" y="52" width="18" height="18" rx="4" fill="#38AE70"/>
+    <rect x="104" y="52" width="18" height="18" rx="4" fill="#2DA56A"/>
+    <rect x="130" y="52" width="18" height="18" rx="4" fill="#DCE4DC"/>
+    <rect x="156" y="52" width="18" height="18" rx="4" fill="#70C995"/>
+    <rect x="0" y="78" width="18" height="18" rx="4" fill="#38AE70"/>
+    <rect x="26" y="78" width="18" height="18" rx="4" fill="#2DA56A"/>
+    <rect x="52" y="78" width="18" height="18" rx="4" fill="#A7DDBF"/>
+    <rect x="78" y="78" width="18" height="18" rx="4" fill="#DCE4DC"/>
+    <rect x="104" y="78" width="18" height="18" rx="4" fill="#70C995"/>
+    <rect x="130" y="78" width="18" height="18" rx="4" fill="#38AE70"/>
+    <rect x="156" y="78" width="18" height="18" rx="4" fill="#A7DDBF"/>
+  </g>
+  <text x="390" y="468" fill="#6F7780" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="700">7-day trend</text>
+  <g transform="translate(395 508)">
+    <rect x="0" y="64" width="18" height="36" rx="5" fill="#A7DDBF"/>
+    <rect x="38" y="44" width="18" height="56" rx="5" fill="#70C995"/>
+    <rect x="76" y="72" width="18" height="28" rx="5" fill="#DCE4DC"/>
+    <rect x="114" y="24" width="18" height="76" rx="5" fill="#38AE70"/>
+    <rect x="152" y="52" width="18" height="48" rx="5" fill="#70C995"/>
+    <rect x="190" y="10" width="18" height="90" rx="5" fill="#2DA56A"/>
+    <rect x="228" y="36" width="18" height="64" rx="5" fill="#38AE70"/>
+  </g>
+</svg>

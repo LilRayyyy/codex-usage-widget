@@ -12,6 +12,14 @@ The main advantage of this project is the desktop widget experience: once the ap
 
 ![Codex Usage app icon](docs/screenshots/app-icon.png)
 
+## Widget Screenshots
+
+The widget is the product's main surface. It is designed for quick desktop visibility instead of forcing you to open a full dashboard every time.
+
+| Small | Medium | Large |
+| --- | --- | --- |
+| ![Small Codex Usage widget](docs/screenshots/widget-small.svg) | ![Medium Codex Usage widget](docs/screenshots/widget-medium.svg) | ![Large Codex Usage widget](docs/screenshots/widget-large.svg) |
+
 ## Highlights
 
 - Native SwiftUI macOS app
