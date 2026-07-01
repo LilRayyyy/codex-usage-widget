@@ -1,0 +1,61 @@
+name: CodexUsageWidget
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    macOS: "14.0"
+packages:
+  CodexUsageCore:
+    path: .
+targets:
+  CodexUsageWidget:
+    type: application
+    platform: macOS
+    sources:
+      - path: CodexUsageWidgetApp
+        excludes:
+          - CodexUsageWidgetApp.entitlements
+          - Info.plist
+    dependencies:
+      - package: CodexUsageCore
+        product: CodexUsageCore
+      - target: CodexUsageWidgetWidgetExtension
+        embed: true
+    info:
+      path: CodexUsageWidgetApp/Info.plist
+      properties:
+        CFBundleDisplayName: Codex Usage Widget
+        CFBundleName: Codex Usage Widget
+        LSMinimumSystemVersion: "14.0"
+        NSPrincipalClass: NSApplication
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.CodexUsageWidget
+        PRODUCT_NAME: Codex Usage Widget
+        SWIFT_VERSION: "5.9"
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_ENTITLEMENTS: CodexUsageWidgetApp/CodexUsageWidgetApp.entitlements
+  CodexUsageWidgetWidgetExtension:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: CodexUsageWidgetWidget
+        excludes:
+          - CodexUsageWidgetWidget.entitlements
+          - Info.plist
+    dependencies:
+      - package: CodexUsageCore
+        product: CodexUsageCore
+    info:
+      path: CodexUsageWidgetWidget/Info.plist
+      properties:
+        CFBundleDisplayName: Codex Usage
+        CFBundleName: CodexUsageWidgetWidgetExtension
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.CodexUsageWidget.Widget
+        PRODUCT_NAME: CodexUsageWidgetWidgetExtension
+        SWIFT_VERSION: "5.9"
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_ENTITLEMENTS: CodexUsageWidgetWidget/CodexUsageWidgetWidget.entitlements

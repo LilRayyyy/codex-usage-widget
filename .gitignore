@@ -1,0 +1,12 @@
+.DS_Store
+.build/
+DerivedData/
+SignedDerivedData/
+dist/
+release/
+*.dmg
+*.zip
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+*.swp
