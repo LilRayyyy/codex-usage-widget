@@ -6,6 +6,8 @@ Native macOS dashboard and WidgetKit widget for keeping an eye on local Codex us
 
 Codex Usage Widget reads usage information from the local Codex App Server, stores a local snapshot, and renders it in a macOS app, menu bar item, and desktop widgets. It is designed for people who use Codex heavily and want a quick view of remaining allowance, weekly limits, monthly usage patterns, and recent usage trends.
 
+The main advantage of this project is the desktop widget experience: once the app has refreshed usage data, the widget lets you glance at Codex allowance directly from the macOS desktop or Notification Center without opening the app.
+
 ![Codex Usage UI preview](docs/previews/ui-preview.svg)
 
 ![Codex Usage app icon](docs/screenshots/app-icon.png)
@@ -13,7 +15,7 @@ Codex Usage Widget reads usage information from the local Codex App Server, stor
 ## Highlights
 
 - Native SwiftUI macOS app
-- WidgetKit extension for small, medium, and large desktop widgets
+- WidgetKit extension for small, medium, and large desktop widgets, the core product experience
 - Overall remaining allowance and current usage progress
 - Weekly remaining progress when Codex exposes weekly rate-limit data
 - Current-month daily heatmap, generated from day 1 through the last day of the month
@@ -24,6 +26,51 @@ Codex Usage Widget reads usage information from the local Codex App Server, stor
 - Test data mode for UI and widget validation
 - Diagnostics panel for refresh status, App Group access, cache path, and Codex executable path
 - Local-only cache; no analytics, no external telemetry, no credential storage
+
+## How New Users Can Use It
+
+There are two practical ways to use this project today.
+
+### Option 1: Try the app window only
+
+Use this path if you do not have Apple Developer Program membership or you only want to check whether local Codex usage loading works.
+
+1. Install full Xcode.
+2. Install Codex and sign in.
+3. Clone this repository.
+4. Run:
+
+```bash
+./script/build_and_run.sh --verify
+```
+
+This launches the unsigned macOS app window. You can test live usage loading, progress bars, monthly heatmap, 7-day trend, Settings, and Diagnostics. The system desktop widget may not work in this mode because WidgetKit extensions require proper signing and App Group access.
+
+### Option 2: Use the full desktop widget
+
+Use this path if you want the real product experience: Codex usage visible as a macOS widget.
+
+1. Install full Xcode.
+2. Install Codex and sign in.
+3. Fork or clone this repository.
+4. Replace the placeholder bundle identifiers and App Group with your own values.
+5. Configure the same Apple Team and App Group for both the app target and widget extension target.
+6. Build and run the app from Xcode.
+7. In the app, click Refresh once or enable test data from Settings.
+8. Open macOS widget editing, search for `Codex Usage`, and add the small, medium, or large widget.
+9. Enable **Launch at Login** in Settings if you want the widget cache to stay fresh in the background.
+
+If the widget is blank or says setup is needed, open **Settings > Diagnostics** in the app and confirm App Group availability, cache path, Codex executable path, and the latest refresh status.
+
+## Why The Widget Matters
+
+The app window is useful for setup and diagnostics, but the widget is the feature that makes the project different from a normal dashboard.
+
+- **Small widget**: quick remaining-allowance glance.
+- **Medium widget**: remaining allowance plus compact daily/monthly context.
+- **Large widget**: richer dashboard with overall remaining, weekly remaining, today/month totals, monthly heatmap, reset timing, and 7-day trend.
+
+The widget reads the latest local snapshot written by the app. This keeps the widget lightweight and avoids storing credentials inside the widget extension.
 
 ## Important Status Notes
 
@@ -69,9 +116,13 @@ Run the app window without signing:
 
 This unsigned run path is useful for checking the dashboard, progress bars, monthly heatmap, settings, diagnostics, and local Codex usage loading.
 
+To use the actual desktop widget, continue with [Widget Setup](#widget-setup). The unsigned command above is not enough for full WidgetKit installation on most Macs.
+
 ## Widget Setup
 
 To use the macOS desktop widget, both the app target and the widget extension target must use the same Apple Team and the same App Group.
+
+This setup is required because the app writes `usage-snapshot.json` and the widget reads it from the shared App Group container. If the App Group differs between targets, the app may work while the widget stays empty.
 
 Default open-source placeholder:
 
@@ -95,7 +146,9 @@ Then in Xcode:
 4. Add or confirm the App Groups capability.
 5. Repeat the same Team and App Group for `CodexUsageWidgetWidgetExtension`.
 6. Build and run the app once so it can write `usage-snapshot.json`.
-7. Open macOS widget editing, search for `Codex Usage`, and add the widget.
+7. In the app, click Refresh once. If you are only testing UI, enable **Use test data** in Settings.
+8. Open macOS widget editing, search for `Codex Usage`, and add the widget.
+9. If the widget does not appear, restart the app, rebuild the widget extension, or restart the macOS widget host by logging out and back in.
 
 If Xcode cannot provision App Groups or the widget extension for your account, the app window can still run locally, but full WidgetKit installation may require a paid Apple Developer Program team.
 
