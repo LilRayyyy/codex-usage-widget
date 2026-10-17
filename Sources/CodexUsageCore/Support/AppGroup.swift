@@ -2,6 +2,12 @@ import Foundation
 import Security
 
 public enum AppGroup {
+    /// Open-source placeholder. Both entitlements files must contain this exact
+    /// value, including `$(AppIdentifierPrefix)`. `AppGroupPlaceholderTests`
+    /// fails when a target drifts. Forks replace the constant and both files
+    /// together; do not commit a personal Team ID.
+    public static let placeholderIdentifier = "$(AppIdentifierPrefix)group.com.example.CodexUsageWidget"
+
     public static func firstEntitledIdentifier() -> String? {
         guard let task = SecTaskCreateFromSelf(nil),
               let value = SecTaskCopyValueForEntitlement(
