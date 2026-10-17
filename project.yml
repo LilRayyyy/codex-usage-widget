@@ -59,3 +59,13 @@ targets:
         SWIFT_VERSION: "5.9"
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_ENTITLEMENTS: CodexUsageWidgetWidget/CodexUsageWidgetWidget.entitlements
+schemes:
+  CodexUsageWidget:
+    build:
+      targets:
+        CodexUsageWidget: all
+        CodexUsageWidgetWidgetExtension: all
+    run:
+      config: Debug
+    archive:
+      config: Release

@@ -20,7 +20,8 @@ let package = Package(
         .testTarget(
             name: "CodexUsageCoreTests",
             dependencies: ["CodexUsageCore"],
-            path: "Tests/CodexUsageCoreTests"
+            path: "Tests/CodexUsageCoreTests",
+            exclude: ["Fixtures"]
         )
     ]
 )
