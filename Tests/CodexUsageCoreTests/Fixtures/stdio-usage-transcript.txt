@@ -1,0 +1,5 @@
+{"id":1,"result":{"userAgent":"codex"}}
+
+{"method":"account/usage/updated","params":{"tokens":1}}
+{"id":"2","result":{"dailyUsageBuckets":[{"startDate":"2026-06-29","tokens":9}]}}
+{"id":2,"result":{"dailyUsageBuckets":[{"startDate":"2026-06-29","tokens":1200},{"startDate":"2026-06-30","tokens":50}]}}

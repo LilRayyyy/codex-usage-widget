@@ -1,0 +1,11 @@
+{
+  "rateLimits": {
+    "planType": "plus",
+    "individualLimit": {
+      "limit": "100",
+      "used": "40",
+      "remainingPercent": 60,
+      "resetsAt": 1780000000
+    }
+  }
+}
