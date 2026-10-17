@@ -10,7 +10,7 @@ struct UsageEntry: TimelineEntry {
 
 struct UsageProvider: TimelineProvider {
     func placeholder(in context: Context) -> UsageEntry {
-        UsageEntry(date: Date(), snapshot: nil, unavailableReason: .needsFirstRefresh)
+        entry(from: WidgetTimeline.placeholder(now: Date()))
     }
 
     func getSnapshot(in context: Context, completion: @escaping (UsageEntry) -> Void) {
@@ -19,21 +19,16 @@ struct UsageProvider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<UsageEntry>) -> Void) {
         let entry = loadEntry()
-        let next = Calendar.current.date(byAdding: .minute, value: 5, to: Date()) ?? Date().addingTimeInterval(300)
+        let next = WidgetTimeline.nextReloadDate(after: entry.date)
         completion(Timeline(entries: [entry], policy: .after(next)))
     }
 
     private func loadEntry() -> UsageEntry {
-        guard let container = AppGroup.containerURL() else {
-            return UsageEntry(date: Date(), snapshot: nil, unavailableReason: .missingAppGroup)
-        }
+        entry(from: WidgetTimeline.loadEntry(now: Date(), containerURL: AppGroup.containerURL()))
+    }
 
-        do {
-            let snapshot = try UsageCacheStore(directory: container).read()
-            return UsageEntry(date: Date(), snapshot: snapshot, unavailableReason: nil)
-        } catch {
-            return UsageEntry(date: Date(), snapshot: nil, unavailableReason: .needsFirstRefresh)
-        }
+    private func entry(from state: WidgetTimelineEntry) -> UsageEntry {
+        UsageEntry(date: state.date, snapshot: state.snapshot, unavailableReason: state.unavailableReason)
     }
 }
 
@@ -374,59 +369,6 @@ private struct UnavailableWidgetView: View {
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-    }
-}
-
-enum WidgetUnavailableReason {
-    case needsFirstRefresh
-    case missingAppGroup
-    case unauthenticated
-    case unsupportedAuth
-    case failed(String)
-
-    init?(status: RefreshStatus) {
-        switch status {
-        case .ready, .stale:
-            return nil
-        case .unauthenticated:
-            self = .unauthenticated
-        case .unsupportedAuth:
-            self = .unsupportedAuth
-        case .missingCodex:
-            self = .failed("Codex app is not installed.")
-        case .failed(let message):
-            self = .failed(message)
-        }
-    }
-
-    var title: String {
-        switch self {
-        case .needsFirstRefresh:
-            return "Open app"
-        case .missingAppGroup:
-            return "Setup needed"
-        case .unauthenticated:
-            return "Sign in"
-        case .unsupportedAuth:
-            return "Unavailable"
-        case .failed:
-            return "Refresh failed"
-        }
-    }
-
-    var message: String {
-        switch self {
-        case .needsFirstRefresh:
-            return "Open Codex Usage Widget and refresh once."
-        case .missingAppGroup:
-            return "App and widget need the same App Group."
-        case .unauthenticated:
-            return "Sign in to Codex, then refresh the app."
-        case .unsupportedAuth:
-            return "This Codex account does not expose usage data."
-        case .failed(let message):
-            return message.isEmpty ? "Open the app to inspect diagnostics." : message
-        }
     }
 }
 
